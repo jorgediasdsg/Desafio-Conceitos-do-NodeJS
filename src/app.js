@@ -86,10 +86,12 @@ app.post("/repositories/:id/like", (request, response) => {
     ...likesOld,
     likes:likesOld.likes + 1
   }
-
+  console.log(repoLike);
   repositories[repositoryIndex] = repoLike
       
-  return response.json(repositories[repositoryIndex]);
+  return response.json({
+    "likes":repoLike.likes,
+  });
 
 });
 
